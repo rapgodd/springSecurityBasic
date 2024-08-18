@@ -36,6 +36,7 @@ public class EazyBankUserDetails implements UserDetailsService {
             authorities = new ArrayList<>();
             authorities.add(new SimpleGrantedAuthority(customers.get(0).getRole()));
         }
+        
         return new User(userName, password, authorities);
     }
 }
