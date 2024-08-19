@@ -23,6 +23,7 @@ public class NoticesController {
         List<Notice> notices = noticeRepository.findAllActiveNotices();
         if (notices != null) {
             return ResponseEntity.ok()
+                    //이렇게 캐시에 담으면 API요청 60초동안 새로고침해도 하지 않음.
                     .cacheControl(CacheControl.maxAge(60, TimeUnit.SECONDS))
                     .body(notices);
         } else {
